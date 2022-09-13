@@ -7,7 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl = 'https://sheet.best/api/sheets/7327b4d6-de59-4490-a60f-f218cee785c7';
+  apiUrl = 'https://api.steinhq.com/v1/storages/63012920bc148508ba88841a';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-type': 'application/json'
@@ -30,7 +30,7 @@ export class UserService {
 
   //Exclui o usuário do banco - DELETE
   deleteUser(id: number):Observable<User> {
-    return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`)
+    return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`);
   }
 
   //Edita usuário - UPDATE
@@ -40,6 +40,6 @@ export class UserService {
 
   //Lista usuário único 
   getUser(id: string):Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.apiUrl}/id/${id}`)
+    return this.httpClient.get<User[]>(`${this.apiUrl}/id/${id}`);
   }
 }
